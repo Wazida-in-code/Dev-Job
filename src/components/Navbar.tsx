@@ -1,4 +1,3 @@
-import React from "react";
 import { FaRegBookmark } from "react-icons/fa";
 
 const Navbar = () => {
