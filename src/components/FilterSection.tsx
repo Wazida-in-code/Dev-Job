@@ -1,4 +1,5 @@
 const FilterSection = () => {
+  
   return (
     <div className="container w-11/12 py-16 mx-auto">
       <h1 className="text-2xl font-bold">Find your next developer role</h1>
