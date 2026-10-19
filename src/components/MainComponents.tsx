@@ -10,13 +10,32 @@ type MainPromiseType = {
 
 const MainComponents = ({jobsPromise}:MainPromiseType) => {
     const data = use(jobsPromise);
+    const [jobsData, setJobsData] = useState(data)
     const [saveJobs, setSaveJobs] = useState<JobPromiseType[]>([])
     
+    const handleJobsData = (type: "all" | "frontend" | "backend" | "design") => {
+        if (type === "frontend"){
+            const frontendJob = data.filter((el) => el.field.toLowerCase() === 'frontend');
+            setJobsData(frontendJob)
+        }
+        else if (type === "backend"){
+            const backendJob = data.filter(el => el.field.toLowerCase() === 'backend')
+            setJobsData(backendJob);
+        }
+        else if (type === "design"){
+            const designJob = data.filter(el => el.field.toLowerCase() === 'design')
+            setJobsData(designJob)
+        }
+        else{
+            setJobsData(data)
+        }
+    }
+
     return (
         <>
             <Navbar saveJobs={saveJobs} />
-            <FilterSection />
-            <JobSection data={data} saveJobs={saveJobs} setSaveJobs={setSaveJobs} />
+            <FilterSection handleJobsData={handleJobsData} />
+            <JobSection data={jobsData} saveJobs={saveJobs} setSaveJobs={setSaveJobs} />
         </>
     );
 };

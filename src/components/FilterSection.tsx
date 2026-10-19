@@ -1,4 +1,8 @@
-const FilterSection = () => {
+interface FilterSectionType {
+  handleJobsData: (type: "all" | "frontend" | "backend" | "design") => void
+}
+
+const FilterSection = ({handleJobsData}: FilterSectionType) => {
   
   return (
     <div className="container w-11/12 py-16 mx-auto">
@@ -32,10 +36,10 @@ const FilterSection = () => {
             placeholder="Search by the title or company"
           />
         </label>
-        <button className="btn btn-neutral rounded-full mr-2">All</button>
-        <button className="btn btn-neutral rounded-full mr-2">Frontend</button>
-        <button className="btn btn-neutral rounded-full mr-2">Backend</button>
-        <button className="btn btn-neutral rounded-full mr-2">Design</button>
+        <button onClick={() => handleJobsData("all")} className="btn btn-neutral rounded-full mr-2">All</button>
+        <button onClick={() => handleJobsData("frontend")} className="btn btn-neutral rounded-full mr-2">Frontend</button>
+        <button onClick={() => handleJobsData("backend")} className="btn btn-neutral rounded-full mr-2">Backend</button>
+        <button onClick={() => handleJobsData("design")} className="btn btn-neutral rounded-full mr-2">Design</button>
       </div>
     </div>
   );
