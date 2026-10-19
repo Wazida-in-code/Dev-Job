@@ -22,7 +22,7 @@ const JobSection = ({data, saveJobs, setSaveJobs}:DataType) => {
             <div className='w-2/3'>
                 <div className='flex items-center justify-between'>
                     <h2 className='text-2xl font-bold'>Latest Jobs</h2>
-                    <p className='text-slate-400'>6 row found</p>
+                    <p className='text-slate-400'>{data.length} row found</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-5">
@@ -40,7 +40,7 @@ const JobSection = ({data, saveJobs, setSaveJobs}:DataType) => {
             <div className='w-1/3'>
                 <div className='flex items-center justify-between'>
                     <h2 className='text-2xl font-bold'>Saved Jobs</h2>
-                    <p className='text-slate-400'>6 Saved</p>
+                    <p className='text-slate-400'>{saveJobs.length} Saved</p>
                 </div>
                  <div className="space-y-2">
                     {

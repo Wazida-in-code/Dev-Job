@@ -1,6 +1,11 @@
 import { FaRegBookmark } from "react-icons/fa";
+import type { JobPromiseType } from "../JobsTypes";
 
-const Navbar = () => {
+interface saveJobsType {
+  saveJobs: JobPromiseType[]
+}
+
+const Navbar = ({saveJobs}:saveJobsType) => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -62,7 +67,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-neutral"><FaRegBookmark /> Neutral .2</button>
+        <button className="btn btn-neutral"><FaRegBookmark /> Neutral. {saveJobs.length}</button>
       </div>
     </div>
   );

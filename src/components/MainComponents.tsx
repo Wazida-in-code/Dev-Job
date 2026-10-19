@@ -14,7 +14,7 @@ const MainComponents = ({jobsPromise}:MainPromiseType) => {
     
     return (
         <>
-            <Navbar />
+            <Navbar saveJobs={saveJobs} />
             <FilterSection />
             <JobSection data={data} saveJobs={saveJobs} setSaveJobs={setSaveJobs} />
         </>
