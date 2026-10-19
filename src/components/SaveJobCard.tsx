@@ -3,9 +3,10 @@ import type { JobPromiseType } from "../JobsTypes";
 
 interface SaveJobType {
   job: JobPromiseType;
+  handleRemoveJob: (job:JobPromiseType) => void
 }
 
-const SaveJobCard = ({ job }: SaveJobType) => {
+const SaveJobCard = ({ job, handleRemoveJob }: SaveJobType) => {
   return (
     <div className="card bg-base-100 card-sm shadow-sm mb-5 p-6">
       <div className="">
@@ -16,7 +17,7 @@ const SaveJobCard = ({ job }: SaveJobType) => {
           </div>
         </div>
 
-        <button className="btn btn-outline btn-secondary mt-5 w-full">Remove</button>
+        <button onClick={() => handleRemoveJob(job)} className="btn btn-outline btn-secondary mt-5 w-full">Remove</button>
       </div>
     </div>
   );

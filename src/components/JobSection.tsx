@@ -15,7 +15,13 @@ const JobSection = ({data, saveJobs, setSaveJobs}:DataType) => {
         const updateSaveJob = [...filterdJob, job]
         setSaveJobs(updateSaveJob)
     }
-    console.log(saveJobs);
+
+    const handleRemoveJob = (job: JobPromiseType) => {
+        const filterJobs = saveJobs.filter(el => el.id !== job.id);
+        setSaveJobs(filterJobs)
+        
+    }
+   
     return (
         <div className='flex container w-11/12 mx-auto justify-between gap-6'>
             {/* left side */}
@@ -45,7 +51,7 @@ const JobSection = ({data, saveJobs, setSaveJobs}:DataType) => {
                  <div className="space-y-2">
                     {
                         saveJobs.map(job => 
-                            <SaveJobCard job={job} />
+                            <SaveJobCard key={job.id} job={job} handleRemoveJob={handleRemoveJob} />
                         )
                     }
                  </div>
