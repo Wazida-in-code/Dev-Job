@@ -2,9 +2,10 @@ import type { JobPromiseType } from "../JobsTypes";
 
 type ItemType = {
     item: JobPromiseType
+    handleSaveJob: (job: JobPromiseType) => void
 }
 
-const JobCard = ({item}:ItemType) => {
+const JobCard = ({item, handleSaveJob}:ItemType) => {
   return (
     <div className="card bg-base-100 card-sm shadow-sm mb-5 p-6">
       <div className="">
@@ -17,7 +18,7 @@ const JobCard = ({item}:ItemType) => {
        </div>
         <div className="flex justify-between items-center py-5">
           <p className="font-bold">{item.salaryRange}</p>
-          <button className="btn btn-primary">Saved</button>
+          <button onClick={() => handleSaveJob(item)} className="btn btn-primary">Saved</button>
         </div>
       </div>
     </div>

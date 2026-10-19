@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import Navbar from './Navbar';
 import FilterSection from './FilterSection';
 import JobSection from './JobSection';
@@ -10,12 +10,13 @@ type MainPromiseType = {
 
 const MainComponents = ({jobsPromise}:MainPromiseType) => {
     const data = use(jobsPromise);
+    const [saveJobs, setSaveJobs] = useState<JobPromiseType[]>([])
     
     return (
         <>
             <Navbar />
             <FilterSection />
-            <JobSection data={data} />
+            <JobSection data={data} saveJobs={saveJobs} setSaveJobs={setSaveJobs} />
         </>
     );
 };
