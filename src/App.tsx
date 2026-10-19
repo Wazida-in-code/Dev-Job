@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import "./App.css";
+import Footer from "./components/Footer";
 import MainComponents from "./components/MainComponents";
 import type { JobPromiseType } from "./JobsTypes";
 
@@ -11,6 +12,7 @@ function App() {
       <Suspense fallback={"Loading"}>
         <MainComponents jobsPromise={jobsPromise} />
       </Suspense>
+      <Footer />
     </div>
   );
 }
