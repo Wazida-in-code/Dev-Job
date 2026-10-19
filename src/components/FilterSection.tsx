@@ -2,18 +2,25 @@ interface FilterSectionType {
   handleJobsData: (type: "all" | "frontend" | "backend" | "design") => void
 }
 
+const filterOptions = [
+  { label: "All", value: "all" },
+  { label: "Frontend", value: "frontend" },
+  { label: "Backend", value: "backend" },
+  { label: "Design", value: "design" },
+] as const
+
 const FilterSection = ({handleJobsData}: FilterSectionType) => {
   
   return (
-    <div className="container w-11/12 py-16 mx-auto">
-      <h1 className="text-2xl font-bold">Find your next developer role</h1>
-      <p>
+    <div className="container w-11/12 max-w-7xl py-10 sm:py-16 mx-auto">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Find your next developer role</h1>
+      <p className="mt-2 text-sm sm:text-base text-base-content/70">
         Search, filter, and save the jobs you like - everything updates
         instantly
       </p>
 
-      <div className="flex gap-5 justify-center items-center py-6">
-        <label className="input">
+      <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 sm:gap-4 justify-center items-stretch lg:items-center py-6">
+        <label className="input w-full lg:w-80">
           <svg
             className="h-[1em] opacity-50"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,13 +43,20 @@ const FilterSection = ({handleJobsData}: FilterSectionType) => {
             placeholder="Search by the title or company"
           />
         </label>
-        <button onClick={() => handleJobsData("all")} className="btn btn-neutral rounded-full mr-2">All</button>
-        <button onClick={() => handleJobsData("frontend")} className="btn btn-neutral rounded-full mr-2">Frontend</button>
-        <button onClick={() => handleJobsData("backend")} className="btn btn-neutral rounded-full mr-2">Backend</button>
-        <button onClick={() => handleJobsData("design")} className="btn btn-neutral rounded-full mr-2">Design</button>
+        <div className="flex flex-wrap gap-2 sm:gap-3">
+          {filterOptions.map((option) => (
+            <button
+              key={option.value}
+              onClick={() => handleJobsData(option.value)}
+              className="btn btn-neutral btn-sm sm:btn-md rounded-full flex-1 sm:flex-none"
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default FilterSection;

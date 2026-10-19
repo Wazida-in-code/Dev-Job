@@ -1,4 +1,3 @@
-import React from "react";
 import type { JobPromiseType } from "../JobsTypes";
 
 interface SaveJobType {
@@ -8,12 +7,12 @@ interface SaveJobType {
 
 const SaveJobCard = ({ job, handleRemoveJob }: SaveJobType) => {
   return (
-    <div className="card bg-base-100 card-sm shadow-sm mb-5 p-6">
-      <div className="">
+    <div className="card bg-base-100 card-sm shadow-sm p-4 sm:p-6">
+      <div className="min-w-0">
         <div className="flex justify-between items-start w-full gap-4">
-          <div>
-            <h2 className="mb-4">{job.title}</h2>
-            <p>{job.location}</p>
+          <div className="min-w-0">
+            <h2 className="mb-4 font-semibold break-words">{job.title}</h2>
+            <p className="text-sm text-base-content/70 break-words">{job.location}</p>
           </div>
         </div>
 

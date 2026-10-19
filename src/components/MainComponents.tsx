@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import { use, useState } from 'react';
 import Navbar from './Navbar';
 import FilterSection from './FilterSection';
 import JobSection from './JobSection';

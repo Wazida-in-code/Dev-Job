@@ -8,7 +8,7 @@ interface saveJobsType {
 const Navbar = ({saveJobs}:saveJobsType) => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
-      <div className="navbar-start">
+      <div className="navbar-start min-w-0">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -46,7 +46,7 @@ const Navbar = ({saveJobs}:saveJobsType) => {
           </li>
           </ul>
         </div>
-        <div className="text-2xl font-bold">
+        <div className="text-xl sm:text-2xl font-bold truncate">
             <p>Dev<span className="text-orange-500">Jobs</span></p>
         </div>
       </div>
@@ -66,8 +66,12 @@ const Navbar = ({saveJobs}:saveJobsType) => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <button className="btn btn-neutral"><FaRegBookmark /> Neutral. {saveJobs.length}</button>
+      <div className="navbar-end gap-2">
+        <button className="btn btn-neutral btn-sm sm:btn-md whitespace-nowrap">
+          <FaRegBookmark />
+          <span className="hidden sm:inline">Saved</span>
+          <span className="badge badge-sm">{saveJobs.length}</span>
+        </button>
       </div>
     </div>
   );
