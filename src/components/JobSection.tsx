@@ -35,7 +35,7 @@ const JobSection = ({data, saveJobs, setSaveJobs}:DataType) => {
                     {
                         data.map(item => (
                             
-                            <JobCard key={item.id} item={item} handleSaveJob={handleSaveJob} />
+                            <JobCard key={item.id} item={item} saveJobs={saveJobs} handleSaveJob={handleSaveJob} />
                             
                         ))
                     }
